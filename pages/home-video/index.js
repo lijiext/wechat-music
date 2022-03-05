@@ -1,4 +1,5 @@
 // pages/home-video/index.js
+import NETWORK from '../../service/index.js';
 Page({
 
     /**
@@ -12,21 +13,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        /* 临时改变this指向 */
-        const _this = this;
-        wx.request({
-            url: 'http://123.207.32.32:9001/top/mv',
-            data: {
-                offset: 0,
-                limit: 10
-            },
-            success: function (res) {
-                console.log(res);
-                _this.setData({ topMVs: res.data.data });
-            },
-            fail: function (err) {
-                console.log(err);
-            }
+        NETWORK.get('/top/mv', { offset: 0, limit: 10 }).then(res => {
+            console.log(res);
+            this.setData({ topMVs: res.data });
         })
     },
 
