@@ -1,5 +1,5 @@
 // pages/home-video/index.js
-import NETWORK from '../../service/index.js';
+import {getTopMV} from '../../service/api_videos.js';
 Page({
 
     /**
@@ -13,10 +13,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        NETWORK.get('/top/mv', { offset: 0, limit: 10 }).then(res => {
-            console.log(res);
+        getTopMV(0).then(res => {
             this.setData({ topMVs: res.data });
-        })
+        });
     },
 
     /**
