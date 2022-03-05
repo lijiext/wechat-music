@@ -1,5 +1,13 @@
 <!--index.wxml-->
 <!-- 页面内容 -->
-<view class="container">
+<view class="title">
   {{message}}
-</view>
+</view >
+
+<block wx:for="{{movies}}" wx:key="*this" class="list">
+    <view>{{item}}</view>
+</block>
+
+<view>当前计数：{{count}}</view>
+<button size="mini" bind:tap="handleIncrement">Plus</button>
+<button size="mini" bind:tap="handleDecrement">Minus</button>
