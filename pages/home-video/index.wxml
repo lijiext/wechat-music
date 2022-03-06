@@ -1,18 +1,6 @@
 <!-- pages/home-video/index.wxml -->
-<wxs src="../../utils/format.wxs" module="format"></wxs>
 <view class="video">
     <view class="item" wx:for="{{topMVs}}" wx:key="id">
-        <view class="album">
-            <!-- MV预览图 -->
-            <image class="cover" src="{{item.cover}}" mode="widthFix"></image>
-            <view class="info">
-                <!-- 播放数量 -->
-                <view class="count">{{format.formatCount(item.playCount)}}</view>
-                <!-- 视频时长 -->
-                <view class="duration">{{format.formatDuration(item.mv.videos[0].duration)}}</view>
-            </view>
-        </view>
-        <!-- 拼接歌曲名称和歌手 -->
-        <view class="content">{{item.name}} - {{item.artistName}}</view>
+        <video-item-v1 item="{{item}}"></video-item-v1>
     </view>
 </view>
