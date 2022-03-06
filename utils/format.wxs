@@ -1,0 +1,33 @@
+function formatCount(count) {
+    var counter = parseInt(count);
+    // 将大数字缩写为亿万
+    if (counter > 100000000) {
+        // 保留一位小数
+        return (counter / 100000000).toFixed(1) + '亿';
+    } else if (counter > 10000) {
+        return (counter / 10000).toFixed(1) + '万';
+    } else {
+        return counter + '';
+    }
+}
+
+// 添加前导0
+// 12 -> '12'
+// 5 -> '05'
+function padLeftZero(str) {
+    str = str + '';
+    return ('00' + str).slice(str.length);
+}
+
+function formatDuration(duration) {
+    duration = parseInt(duration / 1000);
+    var minute = Math.floor((duration % 3600) / 60);
+    var second = duration % 60;
+    return padLeftZero(minute) + ':' + padLeftZero(second);
+}
+
+// 不支持 es6
+module.exports = {
+    formatCount: formatCount,
+    formatDuration: formatDuration
+}
