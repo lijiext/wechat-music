@@ -1,8 +1,9 @@
 // pages/home-video/index.js
-import {getTopMV} from '../../service/api_videos.js';
+import { getTopMV } from '../../service/api_videos.js';
 Page({
     data: {
-        topMVs: []
+        topMVs: [],
+        hasMore: true
     },
 
     /**
@@ -11,10 +12,21 @@ Page({
      */
     onLoad: async function (options) {
         const res = await getTopMV(0);
-        this.setData({topMVs: res.data});
-        // getTopMV(0).then(res => {
-        //     this.setData({ topMVs: res.data });
-        // });
+        this.setData({ topMVs: res.data });
     },
 
+    // 生命周期函数--监听页面滑动到底部
+    onReachBottom: async function () {
+        // 判断是否有更多数据
+        if (!this.data.hasMore) return;
+        const res = await getTopMV(this.data.topMVs.length);
+        this.setData({ topMVs: this.data.topMVs.concat(res.data) });
+        this.setData({ hasMore: res.hasMore });
+    },
+
+    // 
+    onPullDownRefresh: async function () {
+        const res = await getTopMV(0);
+        this.setData({ topMVs: res.data });
+    }
 })
