@@ -21,6 +21,7 @@ Page({
         // 判断是否可以请求
         // 如果没有更多数据 并且 偏移量不为 0
         if (!this.data.hasMore && offset !== 0) return;
+        wx.showNavigationBarLoading();
         if (offset === 0) {
             // 下拉刷新 需要在 json 中设置 backgroundTextStyle: 'dark'
             wx.stopPullDownRefresh();
@@ -56,5 +57,17 @@ Page({
         // const res = await getTopMV(0);
         // this.setData({ topMVs: res.data });
         this.getTopMvData(0);
+    },
+
+    handleMvItemClick: function (event) {
+        console.log('click item id:', event.currentTarget.dataset.item.id);
+        wx.navigateTo({
+            url: '/pages/detail-video/index?id=' + event.currentTarget.dataset.item.id,
+            success: (result)=>{
+                
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+        });
     }
 })
