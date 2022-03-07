@@ -1,2 +1,6 @@
-<!--pages/detail-video/index.wxml-->
-<text>pages/detail-video/index.wxml</text>
+<!-- pages/detail-video/index.wxml -->
+<view>
+    <video class="video" src="{{mvURL}}" autoplay="{{true}}" loop="{{true}}"></video>
+    <view>{{mvDetail.name}}</view>
+    <view wx:for="{{relatedVideo}}" vx:key="{{id}}">{{item.title}}</view>
+</view>
