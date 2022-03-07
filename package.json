@@ -1,0 +1,22 @@
+{
+  "name": "orange-music",
+  "version": "1.0.0",
+  "description": "a QQ Music style music miniprogram",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lijiext/wechat-music.git"
+  },
+  "author": "lijiext",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lijiext/wechat-music/issues"
+  },
+  "homepage": "https://github.com/lijiext/wechat-music#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.2"
+  }
+}

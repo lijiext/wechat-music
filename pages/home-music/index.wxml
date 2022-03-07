@@ -1,2 +1,5 @@
 <!--pages/home-music/index.wxml-->
-<text>pages/home-music/index.wxml</text>
+<view>
+    <vant-search></vant-search>
+</view>
+

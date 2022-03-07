@@ -23,6 +23,13 @@
                     "name": "detail video",
                     "pathName": "pages/detail-video/index",
                     "query": "id=14505109",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/home-music/index",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }
