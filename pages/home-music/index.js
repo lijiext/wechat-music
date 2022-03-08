@@ -1,6 +1,6 @@
 // pages/home-music/index.js
 import { getBanners } from '../../service/api_music'
-
+import queryElement from '../../utils/query_element'
 Page({
     data: {
         banners: [],
@@ -23,12 +23,10 @@ Page({
     imgLoaded: function () {
         console.log('img loaded');
         // 获取元素的高度
-        const query = wx.createSelectorQuery();
-        query.select(".swiper-item-image").boundingClientRect();
-        query.exec((res) => {
-            // 设置轮播图的高度
+        queryElement(".swiper-item-image").then(res => {
             this.setData({ swiperHeight: res[0].height });
-        });
+        })
+
 
     },
     handleSearchClick: function () {
