@@ -1,5 +1,10 @@
 <!--pages/home-music/index.wxml-->
 <view>
-    <vant-search></vant-search>
+    <vant-search 
+    disabled 
+    shape="round" 
+    placeholder="搜索想听的歌曲"
+    bind:tap="handleSearchClick"
+    />
 </view>
 
