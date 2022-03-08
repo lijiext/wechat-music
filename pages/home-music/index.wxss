@@ -3,3 +3,14 @@
     background-color: #fff !important;
     
 }
+
+.swiper-item {
+    /* 图片下方 3px */
+    /* 需要获取图片高度 设置 轮播图高度 */
+    display: flex;
+}
+
+.swiper-item .swiper-item-image {
+    /* 轮播图默认高度 150px */
+    width: 100%;
+}

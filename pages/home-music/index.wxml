@@ -1,10 +1,25 @@
-<!--pages/home-music/index.wxml-->
+<!-- pages/home-music/index.wxml -->
 <view>
-    <vant-search 
-    disabled 
-    shape="round" 
-    placeholder="搜索想听的歌曲"
-    bind:tap="handleSearchClick"
-    />
+    <view>
+        <vant-search disabled shape="round" placeholder="搜索想听的歌曲" bind:tap="handleSearchClick" />
+    </view>
+    <view>
+        <swiper class="swiper" 
+        indicator-dots
+        autoplay
+        circular
+        style="height: {{swiperHeight}}px"
+        >
+            <block wx:for="{{banners}}" wx:key="bannerId">
+                <swiper-item class="swiper-item">
+                    <image 
+                    class="swiper-item-image" 
+                    src="{{item.pic}}" 
+                    mode="widthFix"
+                    bindload="imgLoaded"
+                    ></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
 </view>
-
