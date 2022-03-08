@@ -1,5 +1,5 @@
 // pages/home-music/index.js
-import { getBanners } from '../../service/api_music'
+import {getBanners} from '../../service/api_music'
 import queryElement from '../../utils/query_element'
 import throttle from '../../utils/throttle'
 
@@ -18,6 +18,7 @@ Page({
 
     getPageData: function () {
         getBanners().then(res => {
+            // setData 渲染是异步的, 设置数据是同步的
             this.setData({
                 banners: res.banners
             })
@@ -28,7 +29,7 @@ Page({
         console.log('img loaded');
         // 获取元素的高度
         throttleQuery(".swiper-item-image").then(res => {
-            this.setData({ swiperHeight: res[0].height });
+            this.setData({swiperHeight: res[0].height});
             // 节流新版本
             console.log('throttle version');
         });
@@ -45,8 +46,10 @@ Page({
             success: (result) => {
 
             },
-            fail: () => { },
-            complete: () => { }
+            fail: () => {
+            },
+            complete: () => {
+            }
         });
     },
 })

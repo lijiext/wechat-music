@@ -1,7 +1,24 @@
 /* pages/home-music/index.wxss */
+page {
+    padding: 0 20rpx;
+    /*解决只有左边间距*/
+    box-sizing: border-box;
+}
+
+.van-search {
+    /*去除搜索框左右边距*/
+    padding: 10px 1px !important;
+}
+
 .van-search__content {
     background-color: #fff !important;
-    
+}
+
+.swiper {
+    border-radius: 10rpx;
+    /*注意某些机型 web-view 适配可能不会显示*/
+    transform: translateY(0);
+    overflow: hidden;
 }
 
 .swiper-item {

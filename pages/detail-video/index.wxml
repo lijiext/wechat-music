@@ -1,6 +1,6 @@
 <!-- pages/detail-video/index.wxml -->
 <view>
-    <video class="video" src="{{mvURL}}" autoplay="{{true}}" loop="{{true}}"></video>
+    <video class="video" src="{{mvURL}}" autoplay="{{true}}" loop="{{true}}" referrer-policy></video>
     <view>{{mvDetail.name}}</view>
-    <view wx:for="{{relatedVideo}}" vx:key="{{id}}">{{item.title}}</view>
+    <view wx:for="{{relatedVideo}}" wx:key="{{id}}">{{item.title}}</view>
 </view>
