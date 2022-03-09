@@ -6,6 +6,11 @@ export function getBanners() {
     })
 }
 
+/**
+ * 获取推荐歌单
+ * @param idx 0:新歌 1:热歌 2:原创 3:飙升
+ * @returns {Promise<unknown>}
+ */
 export function getRankings(idx) {
     return NETWORK.get('/top/list', {
         idx: idx
@@ -19,4 +24,8 @@ export function getHotPlaylist(cat = "全部", limit = 6, offset = 0) {
         limit,
         offset
     })
+}
+
+export function getRanking() {
+    return NETWORK.get('/toplist', {})
 }

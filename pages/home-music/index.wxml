@@ -30,8 +30,11 @@
             </block>
         </view>
     </view>
-    <view class="hot-playlist">
+    <view class="hot-playlist" wx:if="{{recommendList.length >0}}">
         <hot-playlist-v1 title="热门歌单" hotPlaylist="{{hotPlaylist}}"></hot-playlist-v1>
         <hot-playlist-v1 title="华语流行" hotPlaylist="{{chinesePlaylist}}"></hot-playlist-v1>
+    </view>
+    <view class="ranking">
+        <content-header title="巅峰榜"/>
     </view>
 </view>

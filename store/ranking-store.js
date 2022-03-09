@@ -1,16 +1,27 @@
 import {HYEventStore} from 'hy-event-store'
 import {getRankings} from "../service/api_music";
-
+const RankMapping = {
+    0: 'newSongsRanking',
+    1: 'hotRanking',
+    2: 'originalSongRanking',
+    3: 'upingSongRanking',
+}
 export const rankingStore = new HYEventStore({
     state: {
-        hotRanking: {}
+        newSongsRanking: [],//新歌榜单
+        hotRanking: {},//热门榜单
+        originalSongRanking: {},//原创榜单
+        upingSongRanking: {},//上升最快榜单
     },
     actions: {
         getRankingDataAction(ctx) {
-            getRankings(1).then(res => {
-                console.log('res', res);
-                ctx.hotRanking = res.playlist;
-            })
+            for (let i = 0; i < 4; i++) {
+                getRankings(i).then(res => {
+                    const rankingName = RankMapping[i];
+                    ctx[rankingName] = res.playlist;
+                })
+            }
+
         }
     }
 })
