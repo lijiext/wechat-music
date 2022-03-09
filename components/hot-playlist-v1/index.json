@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "content-header": "../../components/content-header/index"
+  }
+}

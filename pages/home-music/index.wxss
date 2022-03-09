@@ -1,6 +1,6 @@
 /* pages/home-music/index.wxss */
 page {
-    padding: 0 20rpx;
+    padding: 0 10rpx;
     /*解决只有左边间距*/
     box-sizing: border-box;
 }

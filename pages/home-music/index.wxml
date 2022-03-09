@@ -30,4 +30,13 @@
             </block>
         </view>
     </view>
+    <view class="hot-playlist">
+
+            <hot-playlist-v1> </hot-playlist-v1>
+<!--        <view class="hot-playlist-list">-->
+<!--            <block wx:for="{{hotPlaylist}}" wx:key="playlistId">-->
+<!--                <playlist-item-v1 item="{{item}}"></playlist-item-v1>-->
+<!--            </block>-->
+<!--        </view>-->
+    </view>
 </view>
