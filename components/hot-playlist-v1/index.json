@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "content-header": "../../components/content-header/index"
+    "content-header": "../../components/content-header/index",
+    "playlist-item": "../../components/playlist-item/index"
   }
 }

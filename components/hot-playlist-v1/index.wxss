@@ -8,9 +8,9 @@
 .hot-playlist-list-item {
     display: inline-block;
     vertical-align: top;
-    width: 200rpx;
-    height: 200rpx;
-    background-color: cornflowerblue;
+    width: 220rpx;
+    /*height: 200rpx;*/
+    background-color: #fff;
     margin-right: 20rpx;
 }
 

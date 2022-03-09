@@ -1,11 +1,9 @@
 <view class="hot-playlist">
-    <content-header title="热门歌单" showRight></content-header>
+    <content-header title="{{title}}" showRight></content-header>
     <!--    本处的 screenwidth 可以直接使用 vw 度量-->
     <scroll-view scroll-x class="hot-playlist-list" style="width:{{screenWidth}}px">
-        <block wx:for="{{6}}" wx:key="*this">
-            <view class="hot-playlist-list-item">
-                {{item}}
-            </view>
+        <block wx:for="{{hotPlaylist}}" wx:key="id">
+            <playlist-item class="hot-playlist-list-item" item="{{item}}"></playlist-item>
         </block>
     </scroll-view>
 </view>

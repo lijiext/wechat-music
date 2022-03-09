@@ -8,7 +8,7 @@
                 indicator-dots
                 autoplay
                 circular
-                style="height: {{swiperHeight}}px"
+                style="height: {{swiperHeight || 240}}px"
         >
             <block wx:for="{{banners}}" wx:key="bannerId">
                 <swiper-item class="swiper-item">
@@ -26,17 +26,12 @@
         <content-header title="推荐歌曲" showRight="{{true}}"/>
         <view class="recommend-song-list">
             <block wx:for="{{recommendList}}" wx:key="songId">
-               <song-item-v1 item="{{item}}"></song-item-v1>
+                <song-item-v1 item="{{item}}"></song-item-v1>
             </block>
         </view>
     </view>
     <view class="hot-playlist">
-
-            <hot-playlist-v1> </hot-playlist-v1>
-<!--        <view class="hot-playlist-list">-->
-<!--            <block wx:for="{{hotPlaylist}}" wx:key="playlistId">-->
-<!--                <playlist-item-v1 item="{{item}}"></playlist-item-v1>-->
-<!--            </block>-->
-<!--        </view>-->
+        <hot-playlist-v1 title="热门歌单" hotPlaylist="{{hotPlaylist}}"></hot-playlist-v1>
+        <hot-playlist-v1 title="华语流行" hotPlaylist="{{chinesePlaylist}}"></hot-playlist-v1>
     </view>
 </view>

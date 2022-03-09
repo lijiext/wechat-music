@@ -1,5 +1,5 @@
 // pages/home-music/index.js
-import {getBanners} from '../../service/api_music'
+import {getBanners, getHotPlaylist} from '../../service/api_music'
 import queryElement from '../../utils/query_element'
 import throttle from '../../utils/throttle'
 import {rankingStore} from '../../store/index'
@@ -11,6 +11,8 @@ Page({
         banners: [],
         swiperHeight: 150,
         recommendList: [],
+        hotPlaylist: [],
+        chinesePlaylist: [],
     },
 
     onLoad: function (options) {
@@ -37,7 +39,19 @@ Page({
                 banners: res.banners
             })
             console.log(this.data.banners)
-        })
+        });
+        getHotPlaylist().then(res => {
+            console.log(res);
+            this.setData({
+                hotPlaylist: res.playlists
+            })
+        });
+        getHotPlaylist("华语").then(res => {
+            console.log(res);
+            this.setData({
+                chinesePlaylist: res.playlists
+            })
+        });
     },
     imgLoaded: function () {
         console.log('img loaded');

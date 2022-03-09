@@ -1,0 +1,45 @@
+.playlist-item {
+    display: inline-block;
+    width: 100%;
+}
+.playlist-item-avatar {
+    position: relative;
+}
+
+.playlist-item-avatar .playlist-item-avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12rpx;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.playlist-item-avatar .playlist-item-avatar-mask{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    font-size: 22rpx;
+    padding: 6rpx 10rpx;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 12rpx;
+    z-index: 1;
+}
+
+.playlist-item .playlist-item-description {
+    width: 100%;
+    font-size: 26rpx;
+
+    /* 显示两行 */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -moz-box;
+    -moz-line-clamp: 2;
+    -moz-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+}
