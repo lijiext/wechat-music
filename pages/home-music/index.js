@@ -2,6 +2,7 @@
 import {getBanners} from '../../service/api_music'
 import queryElement from '../../utils/query_element'
 import throttle from '../../utils/throttle'
+import {rankingStore} from '../../store/index'
 
 const throttleQuery = throttle(queryElement)
 
@@ -9,11 +10,24 @@ Page({
     data: {
         banners: [],
         swiperHeight: 150,
+        recommendList: [],
     },
 
     onLoad: function (options) {
         this.getPageData();
 
+        // 共享数据请求
+        rankingStore.dispatch("getRankingDataAction")
+
+        // 获取共享数据
+        rankingStore.onState("hotRanking", (res) => {
+            if (!res.tracks) return;
+            const recommendSongs = res.tracks.slice(0, 6);
+            console.log('hotRanking', recommendSongs)
+            this.setData({
+                recommendList: recommendSongs
+            })
+        })
     },
 
     getPageData: function () {

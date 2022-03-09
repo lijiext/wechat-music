@@ -5,3 +5,9 @@ export function getBanners() {
         type: 2
     })
 }
+
+export function getRankings(idx) {
+    return NETWORK.get('/top/list', {
+        idx: idx
+    })
+}
