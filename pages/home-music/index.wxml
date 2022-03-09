@@ -23,8 +23,11 @@
         </swiper>
     </view>
     <view class="recommend-song">
-        <content-header title="推荐歌曲" showRight="{{true}}">
-
-        </content-header>
+        <content-header title="推荐歌曲" showRight="{{true}}"/>
+        <view class="recommend-song-list">
+            <block wx:for="{{recommendList}}" wx:key="songId">
+               <song-item-v1 item="{{item}}"></song-item-v1>
+            </block>
+        </view>
     </view>
 </view>

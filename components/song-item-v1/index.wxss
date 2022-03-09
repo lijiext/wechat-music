@@ -1,0 +1,40 @@
+.song-item {
+    display: flex;
+    padding: 10rpx 3rpx;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.song-item-image {
+    width: 120rpx;
+    height: 120rpx;
+    align-items: center;
+    background-color: #ccc;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16rpx;
+    margin:3px
+}
+
+.song-item-content {
+    flex: 1;
+    padding: 10px;
+}
+
+.song-item-content .song-item-title {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.song-item-artist {
+    font-size: 12px;
+    color: #999;
+}
+
+.song-item-more .icon {
+    width: 50rpx;
+    height: 50rpx;
+}
