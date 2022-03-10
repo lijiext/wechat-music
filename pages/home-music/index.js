@@ -112,12 +112,14 @@ Page({
             if (Object.keys(res).length === 0) return;
             console.log('handleFetchRanking', res)
             const name = res.name;
+            const playCount = res.playCount;
             const coverImageUrl = res.coverImgUrl;
             const songList = res.tracks.slice(0, 3);
             const rankingItem = {
                 name,
                 coverImageUrl,
-                songList
+                songList,
+                playCount
             };
             this.setData({
                 rankingList: {...this.data.rankingList, [idx]: rankingItem}

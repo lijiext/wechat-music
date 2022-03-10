@@ -1,0 +1,22 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="rankinglist">
+    <view class="rankinglist-wrapper">
+        <view class="rankinglist-title">
+            {{items.name}}
+        </view>
+        <view class="rankinglist-content">
+            <block wx:for="{{3}}" wx:for-item="index" wx:key="*this">
+                <view class="rankinglist-content-list">
+                    <text>{{index + 1}}. {{items.songList[index].name}}</text>
+                    <text class="rankinglist-content-list-artist">
+                        {{items.songList[index].ar[0].name}}
+                    </text>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="rankinglist-album">
+        <image class="rankinglist-album-cover" src="{{items.coverImageUrl}}" mode="aspectFill"></image>
+        <view class="rankinglist-album-playcount">{{format.formatCount(items.playCount)}}</view>
+    </view>
+</view>

@@ -1,0 +1,74 @@
+.rankinglist {
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    border-radius: 12rpx;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+    /*width: 355px;*/
+}
+.rankinglist-wrapper {
+    padding: 24rpx;
+    flex: 1;
+    overflow: hidden;
+}
+
+.rankinglist-title {
+    font-size: 34rpx;
+    color: #333;
+    margin-bottom: 12rpx;
+}
+
+.rankinglist-content {
+    font-size: 24rpx;
+    width: 100%;
+    margin-top: 3rpx;
+}
+
+.rankinglist-content-list {
+    color: #333;
+    margin-top: 6rpx;
+    width: 100%;
+
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-emphasis: none;
+}
+
+.rankinglist-content-list .rankinglist-content-list-artist {
+    color: #999;
+}
+
+.rankinglist-album {
+    position: relative;
+    /*width: 220rpx;*/
+    width: 40%;
+    display: flex;
+}
+
+.rankinglist-album .rankinglist-album-cover {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    border-radius: 12rpx;
+}
+
+.rankinglist-album .rankinglist-album-playcount {
+    position: absolute;
+    top: 5rpx;
+    right: 5rpx;
+    /*width: 40rpx;*/
+    /*height: 40rpx;*/
+    /*line-height: 40rpx;*/
+    text-align: center;
+    color: #fff;
+    font-size: 22rpx;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 6rpx 10rpx;
+    border-radius: 20rpx;
+}

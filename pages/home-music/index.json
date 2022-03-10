@@ -3,6 +3,7 @@
     "vant-search": "@vant/weapp/search/index",
     "content-header": "../../components/content-header/index",
     "song-item-v1": "../../components/song-item-v1/index",
-    "hot-playlist-v1": "../../components/hot-playlist-v1/index"
+    "hot-playlist-v1": "../../components/hot-playlist-v1/index",
+    "ranking-list-item-v1": "../../components/ranking-list-item-v1/index"
   }
 }

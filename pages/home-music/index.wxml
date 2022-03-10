@@ -36,5 +36,10 @@
     </view>
     <view class="ranking">
         <content-header title="巅峰榜"/>
+        <view class="ranking-list">
+            <block wx:for="{{rankingList}}" wx:key="*this">
+                <ranking-list-item-v1 items="{{item}}"></ranking-list-item-v1>
+            </block>
+        </view>
     </view>
 </view>
