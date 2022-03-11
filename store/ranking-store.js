@@ -6,7 +6,7 @@ const RankMapping = {
     2: 'originalSongRanking',
     3: 'upingSongRanking',
 }
-export const rankingStore = new HYEventStore({
+const rankingStore = new HYEventStore({
     state: {
         newSongsRanking: [],//新歌榜单
         hotRanking: {},//热门榜单
@@ -26,6 +26,7 @@ export const rankingStore = new HYEventStore({
     }
 })
 
-export default {
-    rankingStore
+export  {
+    rankingStore,
+    RankMapping
 }

@@ -1,0 +1,10 @@
+<view>
+    <content-header title="{{rankings.name}}" showRight="{{false}}" />
+    <view class="playlist-wrapper">
+        <view class="playlist-songlist">
+            <block wx:for="{{rankings.tracks}}" wx:key="id">
+                <song-item-v2 item="{{item}}" index="{{index+1}}"></song-item-v2>
+            </block>
+        </view>
+    </view>
+</view>

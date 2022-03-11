@@ -23,7 +23,7 @@
         </swiper>
     </view>
     <view class="recommend-song">
-        <content-header title="推荐歌曲" showRight="{{true}}"/>
+        <content-header title="推荐歌曲" showRight="{{true}}" bind:showMore="handleMoreClick"/>
         <view class="recommend-song-list">
             <block wx:for="{{recommendList}}" wx:key="songId">
                 <song-item-v1 item="{{item}}"></song-item-v1>
@@ -37,8 +37,8 @@
     <view class="ranking">
         <content-header title="巅峰榜"/>
         <view class="ranking-list">
-            <block wx:for="{{rankingList}}" wx:key="*this">
-                <ranking-list-item-v1 items="{{item}}"></ranking-list-item-v1>
+            <block wx:for="{{rankingList}}" wx:key="id">
+                <ranking-list-item-v1 items="{{item}}" bindtap="handleRankingListClick" data-idx="{{index}}"/>
             </block>
         </view>
     </view>

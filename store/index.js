@@ -1,3 +1,3 @@
-import {rankingStore} from './ranking-store'
+import {rankingStore, RankMapping} from './ranking-store'
 
-export {rankingStore}
+export {rankingStore, RankMapping}

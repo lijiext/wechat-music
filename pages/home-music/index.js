@@ -2,7 +2,7 @@
 import {getBanners, getHotPlaylist} from '../../service/api_music'
 import queryElement from '../../utils/query_element'
 import throttle from '../../utils/throttle'
-import {rankingStore} from '../../store/index'
+import {rankingStore, RankMapping} from '../../store/index'
 
 const throttleQuery = throttle(queryElement)
 
@@ -125,5 +125,21 @@ Page({
                 rankingList: {...this.data.rankingList, [idx]: rankingItem}
             });
         }
+    },
+
+    handleMoreClick: function () {
+        console.log('handleMoreClick', '推荐歌曲');
+        wx.navigateTo({
+            url: '/pages/detail-playlist/index',
+        });
+    },
+    handleRankingListClick: function (event) {
+        console.log('handleRankingListClick', event);
+        this.navigateToPlaylist(RankMapping[event.target.dataset.idx]);
+    },
+    navigateToPlaylist: function (rankingName) {
+        wx.navigateTo({
+            url: `/pages/detail-playlist/index?rankingName=${rankingName}`
+        })
     }
 })

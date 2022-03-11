@@ -1,0 +1,11 @@
+<!--歌曲榜单列表item-->
+<view class="item">
+    <view class="item-index">{{index}}</view>
+    <view class="item-detail">
+        <view class="item-song-name">{{item.name}}</view>
+        <view class="item-artist">
+            <image class="icon" src="/static/images/icons/sq_icon.png"></image>
+            <text class="item-artist-name">{{item.ar[0].name}} - {{item.al.name}}</text>
+        </view>
+    </view>
+</view>
