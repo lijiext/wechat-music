@@ -14,5 +14,14 @@ Component({
     data: {
         screenWidth: app.globalData.screenWidth,
     },
-    methods: {}
+    methods: {
+        handlePlaylistClick: function (e) {
+            console.log('event:', e);
+            const id = e.currentTarget.dataset.item.id;
+            console.log('playlist click: ', 'playlist id:', e.currentTarget.dataset.item.id);
+            wx.navigateTo({
+                url: `/pages/detail-playlist/index?id=${id}&type=playlist`
+            })
+        }
+    }
 });

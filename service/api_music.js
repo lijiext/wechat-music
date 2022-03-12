@@ -29,3 +29,9 @@ export function getHotPlaylist(cat = "全部", limit = 6, offset = 0) {
 export function getRanking() {
     return NETWORK.get('/toplist', {})
 }
+
+export function getPlaylistDetail(id) {
+    return NETWORK.get('/playlist/detail/dynamic', {
+        id
+    })
+}

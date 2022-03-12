@@ -1,5 +1,5 @@
 <view>
-    <content-header title="{{rankings.name}}" showRight="{{false}}" />
+    <content-header title="{{rankings.name}}" howRight="{{false}}"/>
     <view class="playlist-wrapper">
         <view class="playlist-songlist">
             <block wx:for="{{rankings.tracks}}" wx:key="id">

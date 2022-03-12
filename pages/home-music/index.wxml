@@ -23,7 +23,7 @@
         </swiper>
     </view>
     <view class="recommend-song">
-        <content-header title="推荐歌曲" showRight="{{true}}" bind:showMore="handleMoreClick"/>
+        <content-header title="{{'推荐歌曲'}}" showRight="{{true}}" bind:showMore="handleMoreClick"/>
         <view class="recommend-song-list">
             <block wx:for="{{recommendList}}" wx:key="songId">
                 <song-item-v1 item="{{item}}"></song-item-v1>
@@ -31,11 +31,11 @@
         </view>
     </view>
     <view class="hot-playlist" wx:if="{{recommendList.length >0}}">
-        <hot-playlist-v1 title="热门歌单" hotPlaylist="{{hotPlaylist}}"></hot-playlist-v1>
-        <hot-playlist-v1 title="华语流行" hotPlaylist="{{chinesePlaylist}}"></hot-playlist-v1>
+        <hot-playlist-v1 title="{{'热门歌单'}}" hotPlaylist="{{hotPlaylist}}"></hot-playlist-v1>
+        <hot-playlist-v1 title="{{'华语流行'}}" hotPlaylist="{{chinesePlaylist}}"></hot-playlist-v1>
     </view>
     <view class="ranking">
-        <content-header title="巅峰榜"/>
+        <content-header title="{{'巅峰榜'}}"/>
         <view class="ranking-list">
             <block wx:for="{{rankingList}}" wx:key="id">
                 <ranking-list-item-v1 items="{{item}}" bindtap="handleRankingListClick" data-idx="{{index}}"/>

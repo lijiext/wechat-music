@@ -3,7 +3,12 @@
     <!--    本处的 screenwidth 可以直接使用 vw 度量-->
     <scroll-view scroll-x class="hot-playlist-list" style="width:{{screenWidth}}px">
         <block wx:for="{{hotPlaylist}}" wx:key="id">
-            <playlist-item class="hot-playlist-list-item" item="{{item}}"></playlist-item>
+            <playlist-item
+                    class="hot-playlist-list-item"
+                    item="{{item}}"
+                    bindtap="handlePlaylistClick"
+                    data-item="{{item}}"
+            ></playlist-item>
         </block>
     </scroll-view>
 </view>

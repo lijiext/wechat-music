@@ -139,7 +139,7 @@ Page({
     },
     navigateToPlaylist: function (rankingName) {
         wx.navigateTo({
-            url: `/pages/detail-playlist/index?rankingName=${rankingName}`
+            url: `/pages/detail-playlist/index?rankingName=${rankingName}&type=ranking`,
         })
     }
 })
