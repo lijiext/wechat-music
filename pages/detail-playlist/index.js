@@ -31,7 +31,6 @@ Page({
     },
     onUnload: function () {
         if (this.data.rankingName) {
-            // TODO
             rankingStore.offState(this.data.rankingName, this.getRankingDataHandler);
         }
     },

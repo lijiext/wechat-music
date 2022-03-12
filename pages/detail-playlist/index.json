@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "content-header": "../../components/content-header/index",
-    "song-item-v2": "../../components/song-item-v2/index"
+    "song-item-v2": "../../components/song-item-v2/index",
+    "playlist-detail": "../../components/playlist-detail/index"
   }
 }
