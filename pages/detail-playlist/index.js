@@ -3,9 +3,10 @@ import {getPlaylistDetail} from "../../service/api_music";
 
 Page({
     data: {
+        type: '',
+        rankingName: '',
         rankings: {},
         playlistDetail: {},
-        type: ''
     },
     onLoad: function (options) {
         const type = options.type;
@@ -14,6 +15,9 @@ Page({
         });
         if (type === 'ranking') {
             const rankingName = options.rankingName;
+            this.setData({
+                rankingName: rankingName
+            });
             rankingStore.onState(rankingName, this.getRankingDataHandler);
         } else if (type === 'playlist') {
             const id = options.id;
@@ -26,9 +30,9 @@ Page({
         }
     },
     onUnload: function () {
-        if (this.data.rankings) {
+        if (this.data.rankingName) {
             // TODO
-            rankingStore.offState(this.data.rankings, this.getRankingDataHandler);
+            rankingStore.offState(this.data.rankingName, this.getRankingDataHandler);
         }
     },
     getRankingDataHandler: function (res) {
