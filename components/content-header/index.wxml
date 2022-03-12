@@ -1,6 +1,6 @@
 <!--components/content-header/index.wxml-->
 <view class="header">
-    <view class="title">{{title}}</view>
+    <view class="title">{{title || '默认标题'}}</view>
     <view class="right" wx:if="{{showRight}}" bindtap="showMore">
         <view class="slot">
             <slot></slot>
