@@ -4,5 +4,4 @@ export default function (selector) {
         query.select(selector).boundingClientRect();
         query.exec(resolve, reject);
     });
-
 }

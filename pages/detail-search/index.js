@@ -1,6 +1,7 @@
 // pages/detail-search/index.js
 import {getSearchHot, getSearchSuggest} from "../../service/api_search";
 import debounce from "../../utils/debounce";
+import {string2node} from "../../utils/string2node";
 
 const debounceGetSearchSuggest = debounce(getSearchSuggest, 300);
 Page({
@@ -53,55 +54,13 @@ Page({
             const suggestResNodesMap = regRes.map(item => item.keyword);
             const nodesAfterSlice = [];
             for (const keyword of suggestResNodesMap) {
-                const nodes = []
-                if (keyword.toUpperCase().startsWith(input.toUpperCase())) {
-                    nodes.push({
-                        name: 'span',
-                        attrs: {
-                            style: 'color: #26ce8a'
-                        },
-                        children: [
-                            {
-                                type: 'text',
-                                text: keyword.slice(0, input.length)
-                            }
-                        ]
-                    })
-                    nodes.push({
-                        name: 'span',
-                        attrs: {
-                            style: 'color: #000000'
-                        },
-                        children: [
-                            {
-                                type: 'text',
-                                text: keyword.slice(input.length)
-                            }
-                        ]
-                    })
-                } else {
-                    nodes.push({
-                        name: 'span',
-                        attrs: {
-                            style: 'color: #000000'
-                        },
-                        children: [
-                            {
-                                type: 'text',
-                                text: keyword
-                            }
-                        ]
-                    })
-                }
-                nodesAfterSlice.push(nodes)
+                // 此处调用封装函数，将关键词和搜索结果分离开展示
+                nodesAfterSlice.push(string2node(keyword, input));
             }
             this.setData({
                 suggestRes: regRes,
                 suggestResNodes: nodesAfterSlice
             })
-            // this.setData({
-            //     suggestRes: res.result.allMatch
-            // })
         })
     }
 })
