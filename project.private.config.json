@@ -37,6 +37,13 @@
                     "name": "原创榜单",
                     "pathName": "pages/detail-playlist/index",
                     "query": "rankingName=originalSongRanking",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/detail-search/index",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

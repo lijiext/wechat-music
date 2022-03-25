@@ -1,66 +1,48 @@
 // pages/detail-search/index.js
+import {getSearchHot, getSearchSuggest} from "../../service/api_search";
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        hotWords: [],
+        input: '',
+        suggestRes: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.getPageData();
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    getPageData: function () {
+        getSearchHot().then(res => {
+            console.log('seach hot words:', res.result.hots);
+            this.setData({
+                hotWords: res.result.hots
+            })
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    // 搜索事件处理
+    handleInputChange: function (e) {
+        const input = e.detail;
+        this.setData({
+            input: input
+        })
+        if (!input.length) {
+            this.setData({
+                suggestRes: []
+            })
+            return;
+        }
+        getSearchSuggest(input).then(res => {
+            console.log('search suggest:', res.result.allMatch);
+            this.setData({
+                suggestRes: res.result.allMatch
+            })
+        })
     }
 })
