@@ -1,6 +1,7 @@
 // pages/detail-search/index.js
 import {getSearchHot, getSearchSuggest} from "../../service/api_search";
-
+import debounce from "../../utils/debounce";
+const debounceGetSearchSuggest = debounce(getSearchSuggest, 300);
 Page({
 
     /**
@@ -38,7 +39,8 @@ Page({
             })
             return;
         }
-        getSearchSuggest(input).then(res => {
+        //    此处需要进行防抖操作，防止频繁调用接口
+        debounceGetSearchSuggest(input).then(res => {
             console.log('search suggest:', res.result.allMatch);
             this.setData({
                 suggestRes: res.result.allMatch
