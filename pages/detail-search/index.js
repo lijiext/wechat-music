@@ -1,5 +1,5 @@
 // pages/detail-search/index.js
-import {getSearchHot, getSearchSuggest} from "../../service/api_search";
+import {getSearchHot, getSearchSuggest, getSearchResult} from "../../service/api_search";
 import debounce from "../../utils/debounce";
 import {string2node} from "../../utils/string2node";
 
@@ -13,7 +13,8 @@ Page({
         hotWords: [],
         input: '',
         suggestRes: [],
-        suggestResNodes: []
+        suggestResNodes: [],
+        exactRes: []
     },
 
     /**
@@ -30,7 +31,7 @@ Page({
             })
         })
     },
-    // 搜索事件处理
+    // 搜索事件处理，模糊推荐
     handleInputChange: function (e) {
         const input = e.detail;
         // console.error('input:', input.length);
@@ -42,6 +43,7 @@ Page({
             this.setData({
                 suggestRes: [],
                 suggestResNodes: [],
+                exactRes: [],
                 input: ''
             })
             return;
@@ -62,5 +64,30 @@ Page({
                 suggestResNodes: nodesAfterSlice
             })
         })
+    },
+    // 点击搜索结果，精确匹配
+    handleSearch: function (e) {
+        const queryWord = this.data.input
+        console.log('queryWord:', queryWord);
+        getSearchResult(queryWord).then(res => {
+            console.log('search result:', res.result.songs);
+            this.setData({
+                exactRes: res.result.songs
+            })
+        })
+    },
+    handleItemClick: function (e) {
+        // 如果没有获取到 index 说明是 keyword
+        let {index, keyword} = e.currentTarget.dataset;
+        if (index) {
+            // 如果有 index 说明是搜索结果
+            keyword = this.data.suggestRes[e.currentTarget.dataset.index].keyword;
+        }
+        // 2. 更新输入框
+        this.setData({
+            input: keyword
+        })
+        // 3. 搜索
+        this.handleSearch();
     }
 })

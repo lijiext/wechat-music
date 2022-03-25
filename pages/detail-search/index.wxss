@@ -1,8 +1,19 @@
 /* pages/detail-search/index.wxss */
 page {
-    padding: 0 10rpx 0 10rpx;
+    padding: 50px 10rpx 0;
 }
 
+/*搜索输入框*/
+.search {
+    position: fixed;
+    top: 0;
+    left: 0rpx;
+    right: 10rpx;
+    /*right: 20rpx;*/
+    /*width: 100%;*/
+}
+
+/*热门搜索*/
 .search-hot-wrapper {
     padding: 10rpx 10rpx;
 }
@@ -25,7 +36,7 @@ page {
     color: #26ce8a;
 }
 
-
+/*模糊搜索推荐*/
 .suggest-wrapper {
     padding: 20rpx 30rpx;
 }
@@ -51,3 +62,11 @@ page {
     font-size: 28rpx;
 }
 
+
+/* 精确匹配 结果*/
+.result .title {
+    font-size: 32rpx;
+    padding-top: 10rpx;
+    padding-left: 10rpx;
+    color: #26ce8a;
+}

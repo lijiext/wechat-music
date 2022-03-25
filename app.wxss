@@ -7,7 +7,7 @@ page {
 
 .van-search {
   /*去除搜索框左右边距*/
-  padding: 10px 1px !important;
+  /*padding: 10px 1px !important;*/
 }
 
 .van-search__content {

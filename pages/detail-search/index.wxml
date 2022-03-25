@@ -1,23 +1,43 @@
 <!--pages/detail-search/index.wxml-->
-<van-search background="#f7f7f7" shape="round" bind:change="handleInputChange" value="{{input}}"/>
+        <!--搜索框-->
+<van-search
+        class="search"
+        background="#f7f7f7"
+        shape="round"
+        bind:change="handleInputChange"
+        bind:search="handleSearch"
+        show-action="{{input.length}}"
+        value="{{input}}"/>
+        <!--热门搜索-->
 <view class="search-hot-wrapper" wx:if="{{!input.length && !suggestRes.length}}">
     <content-header title="热门搜索" showRight="{{false}}"></content-header>
     <view class="search-hot-words">
         <block wx:for="{{hotWords}}" wx:key="first">
-            <view class="tag">{{item.first}}</view>
+            <view class="tag" bindtap="handleItemClick" data-keyword="{{item.first}}">{{item.first}}</view>
         </block>
     </view>
 </view>
 
-<view class="suggest-wrapper" wx:elif="{{input.length || suggestRes.length}}">
+        <!--推荐结果-->
+<view class="suggest-wrapper" wx:elif="{{input.length && !exactRes.length}}">
     <view class="suggest-title">搜索"{{input}}"</view>
     <view class="suggest-result">
         <block wx:for="{{suggestResNodes}}" wx:key="keyword">
-            <view class="suggest-item">
+            <view class="suggest-item" bindtap="handleItemClick" data-index="{{index}}">
                 <image class="suggest-icon" src="/static/images/icons/search_icon.png" mode="widthFix"></image>
-<!--                <text class="suggest-text">{{item.keyword}}</text>-->
+                <!--                <text class="suggest-text">{{item.keyword}}</text>-->
                 <rich-text nodes="{{item}}"></rich-text>
             </view>
+        </block>
+    </view>
+</view>
+
+        <!--精确搜索结果-->
+<view class="result" wx:elif="{{exactRes.length}}">
+    <view class="title">最佳匹配</view>
+    <view class="list">
+        <block wx:for="{{exactRes}}" wx:key="index">
+            <song-item-v2 item="{{item}}" index="{{index+1}}"></song-item-v2>
         </block>
     </view>
 </view>

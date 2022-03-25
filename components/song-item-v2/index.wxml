@@ -5,7 +5,7 @@
         <view class="item-song-name">{{item.name}}</view>
         <view class="item-artist">
             <image class="icon" src="/static/images/icons/sq_icon.png"></image>
-            <text class="item-artist-name">{{item.ar[0].name}} - {{item.al.name}}</text>
+            <text class="item-artist-name">{{item.artists[0].name || item.ar[0].name + ' - '}}{{item.al.name}}</text>
         </view>
     </view>
 </view>
