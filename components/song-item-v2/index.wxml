@@ -1,5 +1,5 @@
 <!--歌曲榜单列表item-->
-<view class="item">
+<view class="item" bindtap="handleSongItemClick" data-id="{{item.id}}">
     <view class="item-index">{{index}}</view>
     <view class="item-detail">
         <view class="item-song-name">{{item.name}}</view>

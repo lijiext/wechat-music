@@ -1,4 +1,4 @@
-<view class="song-item">
+<view class="song-item" bindtap="handleSongItemClick" data-id="{{item.id}}">
     <image class="song-item-image" src="{{item.al.picUrl}}"></image>
     <view class="song-item-content">
         <view class="song-item-title">{{item.name}}</view>
