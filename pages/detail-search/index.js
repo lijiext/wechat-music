@@ -46,6 +46,7 @@ Page({
                 exactRes: [],
                 input: ''
             })
+            debounceGetSearchSuggest.cancel();
             return;
         }
         //    此处需要进行防抖操作，防止频繁调用接口
