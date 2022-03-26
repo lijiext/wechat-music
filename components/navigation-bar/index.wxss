@@ -1,0 +1,52 @@
+.status-bar {
+    /*覆盖默认状态栏*/
+    background-color: #f00;
+}
+
+.nav-header {
+    color: #fff;
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+}
+
+.nav-back, .nav-menu {
+    width: 120rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-tab {
+    flex: 1;
+    font-size: 30rpx;
+    color: #fff;
+}
+
+/*返回按钮*/
+.back-arrow {
+    line-height: unset;
+    display: none;
+}
+
+.back-icon {
+    width: 35rpx;
+    height: 35rpx;
+    display: block;
+}
+
+/*如果返回组件处的内容为空，则显示返回箭头*/
+/*请注意，在 wxml 中，需要先写 slot， 顺序会影响样式是否生效*/
+.back-slot:empty + .back-arrow {
+    display: block;
+}
+
+/*tab 切换*/
+.tab-slot:empty + .tab-default {
+    display: block;
+}
+
+.tab-default {
+    display: none;
+}

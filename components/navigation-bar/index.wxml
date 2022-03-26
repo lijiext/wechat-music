@@ -1,0 +1,22 @@
+<view class="nav-bar">
+    <view class="status-bar" style="height: {{statusBarHeight}}px"></view>
+    <view class="nav-header">
+        <view class="nav-back">
+            <view class="back-slot">
+                <!--按照名称区分的插槽，具名插槽-->
+                <slot name="back-slot"></slot>
+            </view>
+            <view class="back-arrow">
+                <image class="back-icon" src="/static/images/icons/arrow-left.png" mode="widthFix"></image>
+            </view>
+
+        </view>
+        <view class="nav-tab">
+            <view class="tab-slot">
+                <slot name="tab-slot"></slot>
+            </view>
+            <view class="tab-default">{{title}}</view>
+        </view>
+        <view class="nav-menu"></view>
+    </view>
+</view>

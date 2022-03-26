@@ -6,9 +6,11 @@ App({
         console.log('SYSTEM INFO',sys);
         this.globalData.screenWidth = sys.screenWidth;
         this.globalData.screenHeight = sys.screenHeight;
+        this.globalData.statusBarHeight = sys.statusBarHeight;
     },
     globalData: {
         screenWidth: 0,
         screenHeight: 0,
+        statusBarHeight: 0,
     }
 })

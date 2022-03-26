@@ -1,0 +1,8 @@
+<!--背景图片-->
+<image class="player-bg" src="{{currentSong.al.picUrl}}" mode="aspectFill"></image>
+        <!--毛玻璃-->
+<view class="player-mask"></view>
+<navigation-bar>
+    <text slot="back-slot">返回</text>
+    <text slot="tab-slot">菜单</text>
+</navigation-bar>
