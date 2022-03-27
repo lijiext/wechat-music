@@ -48,9 +48,9 @@
                     "scene": null
                 },
                 {
-                    "name": "musicplayer",
+                    "name": "player",
                     "pathName": "pages/music-player/index",
-                    "query": "id=1928857203",
+                    "query": "id=1907766514",
                     "scene": null,
                     "launchMode": "default"
                 }

@@ -7,7 +7,7 @@ Page({
         currentPage: 0,
         swiperHeight: 0,
         playerMusicInfo: {
-            albumImgSrc : 'https://p1.music.126.net/Zrf65912ZxBNKU4px83SRg==/109951167166626780.jpg'
+            albumImgSrc: 'https://p1.music.126.net/Zrf65912ZxBNKU4px83SRg==/109951167166626780.jpg'
         }
     },
     onLoad: function (options) {
@@ -26,7 +26,14 @@ Page({
         //    2. 获取音乐详情
         this.getPageData(id);
         //    3. 获取音乐 url
-
+        //    4. 创建播放器
+        const audioCtx = wx.createInnerAudioContext();
+        // 播放地址，使用 audio 上下文播放
+        audioCtx.src = `http://music.163.com/song/media/outer/url?id=${id}.mp3`;
+        // audioCtx.autoplay = true;
+        audioCtx.onCanplay(() => {
+            audioCtx.play();
+        });
     },
     getPageData: function (id) {
         // 根据 id 获取音乐详情

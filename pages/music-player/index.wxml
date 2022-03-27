@@ -18,7 +18,7 @@
         bindchange="swiperChange">
     <swiper-item class="music">
         <view class="album">
-            <image class="album-image" mode="widthFix" src="{{playerMusicInfo.albumImgSrc}}"></image>
+            <image class="album-image" mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
         </view>
         <view class="info">
             <view class="song-name">爱丫爱丫</view>
