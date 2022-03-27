@@ -5,7 +5,10 @@ Page({
         id: 0,
         currentSong: {},
         currentPage: 0,
-        swiperHeight: 0
+        swiperHeight: 0,
+        playerMusicInfo: {
+            albumImgSrc : 'https://p1.music.126.net/Zrf65912ZxBNKU4px83SRg==/109951167166626780.jpg'
+        }
     },
     onLoad: function (options) {
         // 设置 swiper 高度

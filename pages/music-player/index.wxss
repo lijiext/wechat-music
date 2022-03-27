@@ -22,10 +22,114 @@
     font-size: 28rpx;
     color: #999;
 }
+
 .player-tab .divider {
     margin: 0 10rpx;
 }
 
 .player-tab .active {
     color: #fff;
+}
+
+/*播放页左右滑动切换*/
+.player-swiper {
+    color: #fff;
+}
+
+/*播放页flex布局*/
+.music {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 30rpx 60rpx;
+}
+
+/*专辑封面*/
+.album {
+    display: flex;
+    align-items: center;
+    flex: 5;
+}
+
+/*封面图片*/
+.album .album-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12rpx;
+}
+
+/*专辑下方歌曲信息*/
+.info {
+    margin: 20rpx 0;
+}
+
+/*歌曲名称*/
+.info .song-name {
+    font-size: 48rpx;
+    font-weight: 700;
+}
+
+/*歌曲副标题 歌手和专辑信息*/
+.info .subtitle .singer-name, .info .subtitle .album-name {
+    font-size: 26rpx;
+    color: #ccc;
+    margin: 16rpx 0;
+}
+
+
+/*歌词*/
+.music .lyric {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/*播放进度*/
+.progress {
+    margin: 10rpx 0;
+}
+
+/*进度调整器*/
+.slider {
+    margin: 0 0 18rpx 20rpx;
+}
+
+/*时间显示*/
+.time {
+    display: flex;
+    justify-content: space-between;
+    color: #ccc;
+    font-size: 22rpx;
+}
+
+/*当前播放进度*/
+.time .time-current {
+    margin-left: 10rpx;
+}
+
+/*控制选项*/
+.control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20rpx 0 30rpx;
+}
+
+.control .btn {
+    display: inline-block;
+    width: 60rpx;
+    height: 60rpx;
+    padding: 0;
+}
+
+.control .btn-mode {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.control .btn-play {
+    width: 130rpx;
+    height: 130rpx;
 }
