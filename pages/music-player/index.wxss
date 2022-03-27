@@ -13,3 +13,19 @@
     /*background-color: rgb(0, 0, 0.5);*/
     backdrop-filter: blur(20px);
 }
+
+
+/*自定义导航*/
+.player-tab {
+    /*display: unset;*/
+    /*display: flex;*/
+    font-size: 28rpx;
+    color: #999;
+}
+.player-tab .divider {
+    margin: 0 10rpx;
+}
+
+.player-tab .active {
+    color: #fff;
+}
