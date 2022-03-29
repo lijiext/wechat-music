@@ -12,7 +12,8 @@ Page({
             albumImgSrc: 'https://p1.music.126.net/Zrf65912ZxBNKU4px83SRg==/109951167166626780.jpg'
         },
         showMusicLyric: true,
-        sliderValue: 0
+        sliderValue: 0,
+        isSliderChanging: false
     },
     onLoad: function (options) {
         // 设置 swiper 高度
@@ -43,10 +44,18 @@ Page({
 
         // 获取当前播放进度
         audioContext.onTimeUpdate(() => {
-            console.log('currentPlayerTime: ', audioContext.currentTime)
-            this.setData({
-                currentTime: audioContext.currentTime * 1000
-            })
+            // console.log('currentPlayerTime: ', audioContext.currentTime)
+            // this.setData({
+            //     currentTime: audioContext.currentTime * 1000,
+            // })
+            if (this.data.isSliderChanging) {
+                return;
+            } else {
+                this.setData({
+                    sliderValue: audioContext.currentTime / audioContext.duration * 100,
+                    currentTime: audioContext.currentTime * 1000,
+                })
+            }
         })
 
         // audioCtx.autoplay = true;
@@ -77,7 +86,6 @@ Page({
         // 1. 获取进度值，范围 0 - 100
         const value = e.detail.value;
         // 2. 换算播放进度
-        console.log(this.data.duration)
         const targetTime = this.data.duration * value / 100;
         console.log('targetTime', targetTime);
         // 3. 设置播放进度
@@ -86,7 +94,17 @@ Page({
         audioContext.seek(targetTime / 1000);
         // 4. 记录当前播放进度
         this.setData({
-            sliderValue: value
+            sliderValue: value,
+            isSliderChanging: false
+        })
+    },
+    // 监听播放进度条正在改变
+    handleSliderChanging: function (e) {
+        // console.log('handleSliderChanging', e.detail.value);
+        const targetTime = this.data.duration * e.detail.value / 100;
+        this.setData({
+            isSliderChanging: true,
+            currentTime: targetTime
         })
     },
 });
