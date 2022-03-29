@@ -1,6 +1,6 @@
 <wxs src="../../utils/format.wxs" module="format"></wxs>
 
-<!--背景图片-->
+        <!--背景图片-->
 <image class="player-bg" src="{{currentSong.al.picUrl}}" mode="aspectFill"></image>
         <!--毛玻璃-->
 <view class="player-mask"></view>
@@ -32,9 +32,9 @@
         <!--        不同设备分辨率不同，是否显示歌词使用宽高比判断-->
         <view class="lyric" wx:if="{{showMusicLyric}}">我是歌词，你看到了嘛</view>
         <view class="progress">
-            <slider block-size="{{12}}" class="slider"></slider>
+            <slider block-size="{{12}}" class="slider" bindchange="handleSliderChange" value="{{sliderValue}}"></slider>
             <view class="time">
-                <view class="time-current">01:22</view>
+                <view class="time-current">{{format.formatDuration(currentTime)}}</view>
                 <view class="time-duration">{{format.formatDuration(duration)}}</view>
             </view>
         </view>

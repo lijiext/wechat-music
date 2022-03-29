@@ -11,7 +11,8 @@ Page({
         playerMusicInfo: {
             albumImgSrc: 'https://p1.music.126.net/Zrf65912ZxBNKU4px83SRg==/109951167166626780.jpg'
         },
-        showMusicLyric: true
+        showMusicLyric: true,
+        sliderValue: 0
     },
     onLoad: function (options) {
         // 设置 swiper 高度
@@ -40,6 +41,14 @@ Page({
             audioContext.play();
         })
 
+        // 获取当前播放进度
+        audioContext.onTimeUpdate(() => {
+            console.log('currentPlayerTime: ', audioContext.currentTime)
+            this.setData({
+                currentTime: audioContext.currentTime * 1000
+            })
+        })
+
         // audioCtx.autoplay = true;
         // audioCtx.onCanplay(() => {
         //     audioCtx.play();
@@ -61,5 +70,23 @@ Page({
         this.setData({
             currentPage
         });
-    }
+    },
+    // 监听播放进度
+    handleSliderChange: function (e) {
+        console.log('handleSliderChange', e.detail.value);
+        // 1. 获取进度值，范围 0 - 100
+        const value = e.detail.value;
+        // 2. 换算播放进度
+        console.log(this.data.duration)
+        const targetTime = this.data.duration * value / 100;
+        console.log('targetTime', targetTime);
+        // 3. 设置播放进度
+        audioContext.pause();
+        // 注意本处的参数为秒
+        audioContext.seek(targetTime / 1000);
+        // 4. 记录当前播放进度
+        this.setData({
+            sliderValue: value
+        })
+    },
 });
