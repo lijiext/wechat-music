@@ -27,7 +27,8 @@
                 <view class="album-name">专辑：《爱呀》</view>
             </view>
         </view>
-        <view class="lyric">我是歌词，你看到了嘛</view>
+        <!--        不同设备分辨率不同，是否显示歌词使用宽高比判断-->
+        <view class="lyric" wx:if="{{showMusicLyric}}">我是歌词，你看到了嘛</view>
         <view class="progress">
             <slider block-size="{{12}}" class="slider"></slider>
             <view class="time">

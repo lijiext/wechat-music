@@ -8,7 +8,8 @@ Page({
         swiperHeight: 0,
         playerMusicInfo: {
             albumImgSrc: 'https://p1.music.126.net/Zrf65912ZxBNKU4px83SRg==/109951167166626780.jpg'
-        }
+        },
+        showMusicLyric: true
     },
     onLoad: function (options) {
         // 设置 swiper 高度
@@ -16,7 +17,9 @@ Page({
         const statusBarHeight = getApp().globalData.statusBarHeight;
         // 本处使用了常量写死，不建议这么做
         const swiperHeight = screenHeight - statusBarHeight - 44;
-
+        this.setData({
+            showMusicLyric: getApp().globalData.isShowLyric,
+        })
         //    1. 获取传入的音乐 id
         const id = options.id;
         this.setData({
@@ -31,9 +34,9 @@ Page({
         // 播放地址，使用 audio 上下文播放
         audioCtx.src = `http://music.163.com/song/media/outer/url?id=${id}.mp3`;
         // audioCtx.autoplay = true;
-        audioCtx.onCanplay(() => {
-            audioCtx.play();
-        });
+        // audioCtx.onCanplay(() => {
+        //     audioCtx.play();
+        // });
     },
     getPageData: function (id) {
         // 根据 id 获取音乐详情
