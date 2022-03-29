@@ -14,7 +14,10 @@ Page({
         },
         showMusicLyric: true,
         sliderValue: 0,
-        isSliderChanging: false
+        isSliderChanging: false,
+        musicLyric: [],
+        currentLyric: '',
+        currentLyricIndex: 0,
     },
     onLoad: function (options) {
         // 设置 swiper 高度
@@ -57,12 +60,20 @@ Page({
                     currentTime: audioContext.currentTime * 1000,
                 })
             }
+            //    根据当前播放时间获取歌词
+            for (let i = 0; i < this.data.musicLyric.length; i++) {
+                if (this.data.currentTime < this.data.musicLyric[i].time) {
+                    if (this.data.currentLyricIndex !== i - 1) {
+                        console.log('currentLyricText: ', this.data.musicLyric[i - 1].text)
+                        this.setData({
+                            currentLyricIndex: i - 1,
+                            currentLyric: this.data.musicLyric[i - 1].text || ''
+                        })
+                    }
+                    break
+                }
+            }
         })
-
-        // audioCtx.autoplay = true;
-        // audioCtx.onCanplay(() => {
-        //     audioCtx.play();
-        // });
     },
     getPageData: function (id) {
         // 根据 id 获取音乐详情
@@ -73,13 +84,15 @@ Page({
                 duration: res.songs[0].dt
             });
         })
+        // 根据 id 获取歌词
         getLyricById(id).then(res => {
-            console.log('getLyricById', res.lrc.lyric);
+            // console.log('getLyricById', res.lrc.lyric);
             const lyric = res.lrc.lyric
-            console.log(parseLyric(lyric));
-            // this.setData({
-            //     lyric: res.lrc.lyric
-            // })
+            // console.log(parseLyric(lyric));
+            this.setData({
+                // 格式化歌词到数组
+                musicLyric: parseLyric(lyric)
+            })
         })
     },
     // 监听页面切换
