@@ -1,5 +1,6 @@
-import {getSongById} from "../../service/api_player";
+import {getLyricById, getSongById} from "../../service/api_player";
 import {audioContext} from "../../store/index"
+import {parseLyric} from "../../utils/lyric_parse";
 
 Page({
     data: {
@@ -71,6 +72,14 @@ Page({
                 currentSong: res.songs[0],
                 duration: res.songs[0].dt
             });
+        })
+        getLyricById(id).then(res => {
+            console.log('getLyricById', res.lrc.lyric);
+            const lyric = res.lrc.lyric
+            console.log(parseLyric(lyric));
+            // this.setData({
+            //     lyric: res.lrc.lyric
+            // })
         })
     },
     // 监听页面切换
