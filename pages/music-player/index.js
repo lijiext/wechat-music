@@ -61,10 +61,13 @@ Page({
                 })
             }
             //    根据当前播放时间获取歌词
+            // 多重循环or判断，可优化
             for (let i = 0; i < this.data.musicLyric.length; i++) {
                 if (this.data.currentTime < this.data.musicLyric[i].time) {
+                    // 只有当歌词改变时才更新
                     if (this.data.currentLyricIndex !== i - 1) {
                         console.log('currentLyricText: ', this.data.musicLyric[i - 1].text)
+                        // 设置歌词为向前匹配
                         this.setData({
                             currentLyricIndex: i - 1,
                             currentLyric: this.data.musicLyric[i - 1].text || ''
