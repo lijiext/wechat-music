@@ -8,7 +8,7 @@ App({
         this.globalData.screenHeight = sys.screenHeight;
         this.globalData.statusBarHeight = sys.statusBarHeight;
         //    判断宽高比，设置是否显示歌词
-        console.log('屏幕高宽比：', sys.screenHeight / sys.screenWidth);
+        // console.log('屏幕高宽比：', sys.screenHeight / sys.screenWidth);
         this.globalData.isShowLyric = sys.screenHeight / sys.screenWidth >= 1.5;
     },
     globalData: {

@@ -6,6 +6,7 @@ Page({
         currentSong: {},
         currentPage: 0,
         swiperHeight: 0,
+        duration: null,
         playerMusicInfo: {
             albumImgSrc: 'https://p1.music.126.net/Zrf65912ZxBNKU4px83SRg==/109951167166626780.jpg'
         },
@@ -33,6 +34,8 @@ Page({
         const audioCtx = wx.createInnerAudioContext();
         // 播放地址，使用 audio 上下文播放
         audioCtx.src = `http://music.163.com/song/media/outer/url?id=${id}.mp3`;
+        audioCtx.play();
+
         // audioCtx.autoplay = true;
         // audioCtx.onCanplay(() => {
         //     audioCtx.play();
@@ -43,7 +46,8 @@ Page({
         getSongById(id).then(res => {
             console.log('getSongById', res.songs[0]);
             this.setData({
-                currentSong: res.songs[0]
+                currentSong: res.songs[0],
+                duration: res.songs[0].dt
             });
         })
     },

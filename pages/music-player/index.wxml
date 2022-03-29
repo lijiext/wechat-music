@@ -1,3 +1,5 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+
 <!--背景图片-->
 <image class="player-bg" src="{{currentSong.al.picUrl}}" mode="aspectFill"></image>
         <!--毛玻璃-->
@@ -21,10 +23,10 @@
             <image class="album-image" mode="widthFix" src="{{currentSong.al.picUrl}}"></image>
         </view>
         <view class="info">
-            <view class="song-name">爱丫爱丫</view>
+            <view class="song-name">{{currentSong.name}}</view>
             <view class="subtitle">
-                <view class="singer-name">许66</view>
-                <view class="album-name">专辑：《爱呀》</view>
+                <view class="singer-name">{{currentSong.ar[0].name}}</view>
+                <view class="album-name">专辑：{{currentSong.alia[0] || currentSong.name}}</view>
             </view>
         </view>
         <!--        不同设备分辨率不同，是否显示歌词使用宽高比判断-->
@@ -33,7 +35,7 @@
             <slider block-size="{{12}}" class="slider"></slider>
             <view class="time">
                 <view class="time-current">01:22</view>
-                <view class="time-duration">04:21</view>
+                <view class="time-duration">{{format.formatDuration(duration)}}</view>
             </view>
         </view>
         <view class="control">
