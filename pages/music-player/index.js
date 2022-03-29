@@ -1,4 +1,5 @@
 import {getSongById} from "../../service/api_player";
+import {audioContext} from "../../store/index"
 
 Page({
     data: {
@@ -30,11 +31,14 @@ Page({
         //    2. 获取音乐详情
         this.getPageData(id);
         //    3. 获取音乐 url
-        //    4. 创建播放器
-        const audioCtx = wx.createInnerAudioContext();
+        //    4. 创建播放器 使用全局的 audioContext
         // 播放地址，使用 audio 上下文播放
-        audioCtx.src = `http://music.163.com/song/media/outer/url?id=${id}.mp3`;
-        audioCtx.play();
+        // 首先停止播放
+        audioContext.stop();
+        audioContext.src = `http://music.163.com/song/media/outer/url?id=${id}.mp3`;
+        audioContext.onCanplay(() => {
+            audioContext.play();
+        })
 
         // audioCtx.autoplay = true;
         // audioCtx.onCanplay(() => {
